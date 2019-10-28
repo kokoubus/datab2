@@ -1,0 +1,76 @@
+<html>
+<head>
+<link rel ="stylesheet" type="text/css" href ="bacteriacss.css">
+</head>
+<body <!--style="background-color: red"-->
+
+<ul>
+<li> <a href ="https://en.wikipedia.org/wiki/DNA"> DNA</a> </li>
+<li><a href ="https://en.wikipedia.org/wiki/RNA">  RNA</a></li>
+<li><a href ="https://en.wikipedia.org/wiki/Amino_acid"> Amino Acid</a></li>
+<li><a href ="https://en.wikipedia.org/wiki/Peptide" >Peptide</a></li>
+<li><a href ="https://en.wikipedia.org/wiki/DNA" >Proteine/Enzyme</a></li>
+<li><a href ="https://en.wikipedia.org/wiki/DNA" > Genom/Proteom </a></li>
+
+</ul>
+
+<p><img src="protein.jpg" alt="Protein_3D_Animation" style="width:170px;height:170px;margin-left:15px; float:right"><p>
+<p><img src="protein.jpg" alt="Protein_3D_Animation" style="width:170px;height:170px;margin-left:15px; float:right"><p>
+<p><img src="protein.jpg" alt="Protein_3D_Animation" style="width:170px;height:170px;margin-left:15px; float:right"><p>
+<p><img src="protein.jpg" alt="Protein_3D_Animation" style="width:170px;height:170px;margin-left:15px; float:right"><p>
+
+
+
+<a href ="bacteria2.php"> show Database!</a>
+
+<p>Show the Bacteria with amino-acid sequence from :
+
+<form action = "bacteria_def.php" method = "post">
+
+<p><input name = "ug"/> minimum </p> To
+<p><input name = "og"/> maximum
+
+<p><input type="submit" name="bacteria"/> <input type="reset"/>
+
+</form>
+
+<p><img src="Human_alfa2beta2_hemoglobin.gif" alt="Protein_3D_Animation"> <p><img src="PeptideX.jpg" alt="Protein_3D_Animation" style="width:170px;height:170px;margin-left:15px; float:right"><p>
+<!--aligner les deux images-->
+<p>Please enter your conserved amino-acid sequence!  </p>
+
+<textarea name="seq" cols= 30 rows= 10 > 
+
+</textarea>
+
+<p> <a href ="BLAST"> BLAST </a>
+
+<p>Show the bacteria from which the AA conserved Domain come from!</p>
+
+<form action = "bacteria3.php" method = "post">
+   <p><input type="radio" name="geh" value="1" checked="checked" /> bis 3000 AS; einschl.<a href="https://en.wikipedia.org/wiki/Peptide">PEPTIDE<a><br />
+   <p><input type="radio" name="geh" value="2" /> ab 3000   ausschl. bis 35000  einschl.<a href="https://en.wikipedia.org/wiki/Peptide">PEPTIDE<a> <br />
+   <p><input type="radio" name="geh" value="3" /> ab 35000  ausschl. bis 50000 einschl.<a href="https://en.wikipedia.org/wiki/Peptide">PEPTIDE<a><br />
+   <p><input type="radio" name="geh" value="4" /> ab 50000  ausschl. <a href="https://en.wikipedia.org/wiki/Protein">PROTEINE<a></p>
+   <p><input type="radio" name="geh" value="4" /> ab 500000  ausschl. <a href="https://en.wikipedia.org/wiki/Protein">PROTEINE<a></p>
+   <p><input type="radio" name="geh" value="4" /> ab 5000000  ausschl. <a href="https://en.wikipedia.org/wiki/Protein">PROTEINE<a></p>
+   <p><input type="submit"> <input type="reset" /></p>
+</form>
+<p> Search by name! <br/>
+
+Please enter the beginning letter for your Bacteria!
+<form action ="searchname.php" method = "post">
+<input name = "anfang">
+<p><input type="submit"/> <input type="reset"/>
+</form>
+
+<p>Enter your new <a href="erzeugenbacteria.php"> Bacteria! </a> </p><!--protein_sequenz.php -->
+
+<p>Update your <a href="bacteria_update1.php"> bacteria </a> or <a href="bacteria_loeschen1.php"> delete it! </a> (only with password)</p> 
+
+<p>Show the <a href="construct_verwaltung.php">construct</a></p>
+
+<p>Show the <a href="anfrage.php">construct</a></p>
+<p> show the construct <a href="oop_bacteria.php"> to protein expression!</a> </p>
+
+</body>
+</html>
