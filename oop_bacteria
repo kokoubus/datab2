@@ -1,0 +1,106 @@
+<html>
+<body>
+<?php
+/* Definition der Klasse mitarbeiter */
+class construct
+{
+   /* Eigenschaften eines Mitarbeiters */
+   private $id;//  the serie nbr of the organismus
+   private $bacteria_name;
+   private $Amino_zahl;
+   private $data_base;// the database in which the bacteria; 
+   private $stunden; //time of preparation 
+   private $summe_stunden;// the time you need until the expression!
+
+   /* Daten eines bacteria erzeugen */
+   function __construct($info)
+   {
+      $this->id             = $info[0];
+      $this->bacteria_name  = $info[1];
+      $this->Amino_zahl     = $info[2];
+      $this->data_base      = $info[3];
+      $this->stunden   		= $info[4];
+      $this->summe_stunden 	= 0;
+   }
+
+   /* Stunden eines Mitarbeiters erfassen */
+   function stunden_erfassen($anzahl)
+   {
+      $this->summe_stunden += $anzahl;
+   }
+
+   /* Print the complet  informations of bacteria */
+   function bacteria_print()
+   {
+      $hours = $this->summe_stunden * $this->stunden;
+      echo "<p>Informations:<br />"
+        . "Name: $this->nachname<br />"
+        . "Database: $this->data_base<br />"
+        . "Time: $summe_lohn hours;</p>";
+   }
+}
+
+/* Definition der klasse  */
+class further_info
+{
+   /* Eigenschaften eines expressions_vector */
+   private $name;
+   private $belegschaft;
+   private $summe_stunden_unbekannt;
+
+   /* Daten eines Unternehmens erzeugen */
+   function __construct($na)
+   {
+      /* Name der Firma */
+      $this->name = $na;
+      $this->summe_stunden_unbekannt = 0;
+
+      /* Mitarbeiterdatei lesen */
+      $dp = fopen("oop_bacteria.txt", "r");
+      $zeile = fgets($dp, 100);
+      while(!feof($dp))
+      {
+         $info = explode(",",$zeile);
+         $id = $info[0];
+         $this->belegschaft[$id] = new construct($info);
+         $zeile = fgets($dp, 100);
+      }
+      fclose($dp);
+   }
+
+   /* Stundendatei lesen */
+   function stunden_erfassen()
+   {
+      $dp = fopen("oop_scheck_stunden.txt", "r");
+      $zeile = fgets($dp, 100);
+      while(!feof($dp))
+      {
+         $info = explode(",", $zeile);
+         $id = $info[0];
+         if(array_key_exists($id,$this->belegschaft))
+            $this->belegschaft[$id]->stunden_erfassen($info[1]);
+         else
+            $this->summe_stunden_unbekannt += $info[1];
+         $zeile = fgets($dp, 100);
+      }
+      fclose($dp);
+   }
+
+   /* Alle Schecks ausdrucken*/ 
+   function scheck_ausdruck()
+   {
+      foreach ($this->belegschaft as $schluessel=>$wert)
+      {
+         $this->belegschaft[$schluessel]->scheck_ausdruck();
+      }
+   }
+}
+
+/* Haupt-Programm */
+$un = new further_info("vector");
+$un->stunden_erfassen();
+$un->scheck_ausdruck();
+?>
+</body>
+</html>
+
